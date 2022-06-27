@@ -1,0 +1,27 @@
+
+
+table,td,th{
+    border: 1px solid black;
+
+}
+table{
+    width: 70%;
+    border-collapse: collapse;
+    background-color: rgb(245, 197, 197);
+}
+td,th{
+    text-align: center;
+}
+.my-pagination /deep/ .ngx-pagination .current{
+    background-color: rgb(72, 173, 236);
+}
+
+#divChart{
+    display: block;
+    width: 480px;
+    height: 480px;
+   
+}
+#myChart{
+background-color: rgb(245, 197, 197);
+}

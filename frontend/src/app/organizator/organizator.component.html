@@ -1,0 +1,140 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-4">
+            <img src="assets/logo.png" style="width: 25%;">
+            <h4>TOKYO 2021</h4>
+
+        </div>
+
+        <div class="col-sm-5">
+            
+            
+
+
+
+
+           
+        </div>
+
+        <div class="col-sm-3" style="text-align: center;">
+           
+            <span style="font-weight: bold;"> Prijavljeni ste kao  organizator </span>
+            <br/>
+           
+          <button (click)='odjava()' class="button-39" style="margin-top: 10px;">Odjavite se</button>
+            
+           
+
+         
+        </div>
+
+    </div>
+
+
+    <div class="row" style="background-color: rgb(245, 197, 197);">
+        <div class="col-sm-4">
+
+
+        </div>
+
+
+        <div class="col-sm-4"  >
+
+            <h2 > Olimpijske Igre Tokio <span style="color: rgb(146, 124, 0);">2021</span> </h2>
+        </div>
+
+    </div>
+
+    <div class="row" style="background-color: rgb(139, 198, 235);">
+        <div class="col-sm-2">
+
+
+        </div>
+        <div class="col-sm-8" style="text-align: center;">
+           
+            
+
+         <a routerLink="unosSporta" style="color: black;">Unos sportova</a>
+         &nbsp;
+         |
+         &nbsp;
+         <a routerLink="unosTakmicenja" style="color: black;">Unos takmicenja</a>
+         &nbsp;
+         |
+         &nbsp;
+         <a routerLink="dodelaTakmicara"style="color: black;">Dodela takmicara</a>
+         &nbsp;
+        |
+        &nbsp;
+         <a style="color: black;" routerLink="dodelaDelegata">Dodela delegata</a>
+         &nbsp;
+         |
+         &nbsp;
+         <a routerLink="rekordi" style="color: black;">Individualni rekordi</a> 
+        
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4" style="text-align: center;" >
+           
+           
+        
+            <br/>
+           <span style="font-weight: 900;">  Zahtevi za registraciju:</span>
+           
+            <br/>
+           <table *ngIf='zahtevi.length!=0'>
+            <tr>
+                <th>Ime</th>
+                <th>Prezime</th>
+                <th>Tip</th>
+                <th>Zemlja</th>
+                <th>e-posta</th>
+                <th>Odobreno</th>
+
+            </tr>
+            <tr *ngFor='let z of zahtevi'>
+                <td>{{z.ime}}</td>
+                <td>{{z.prezime}}</td>
+                <td>{{z.tip}}</td>
+                <td>{{z.zemlja}}</td>
+                <td>{{z.eposta}}</td>
+                <td><input type="checkbox" name="selekcija" [(ngModel)]='z.selektovan'></td>
+            </tr>
+
+           </table>
+           <span *ngIf='zahtevi.length==0' style="color: crimson; font-weight: 800;"> &nbsp; &nbsp; &nbsp; &nbsp; Trenutno nema zahteva za registraciju</span>
+
+           &nbsp;
+           &nbsp; &nbsp;
+           &nbsp;
+ 
+           &nbsp;
+           &nbsp;
+           &nbsp;
+           &nbsp;
+           &nbsp;
+           &nbsp;
+           &nbsp;
+           &nbsp; &nbsp;
+           &nbsp;
+ 
+           &nbsp;
+           &nbsp;
+           &nbsp;
+           &nbsp;
+           &nbsp;
+           &nbsp;
+           &nbsp;
+           &nbsp;
+
+          
+           
+           <button class="button-45" (click)='odobri()'  *ngIf='zahtevi.length!=0'>Odobrite</button>
+        </div>
+
+    </div>
+
+</div>

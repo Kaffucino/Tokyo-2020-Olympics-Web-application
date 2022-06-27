@@ -1,0 +1,160 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-4">
+            <img src="assets/logo.png" style="width: 25%;">
+            <h4>TOKYO 2021</h4>
+
+        </div>
+
+        <div class="col-sm-5">
+            
+            
+
+
+
+
+           
+        </div>
+
+        <div class="col-sm-3 " style="text-align: center;">
+          
+
+
+            <span style="font-weight: bold; "> Prijavljeni ste kao organizator </span>
+            <br/>
+          
+            
+
+          <button (click)='odjava()' class="button-39" style="margin-top: 10px;">Odjavite se</button>
+            
+           
+
+         
+        </div>
+
+    </div>
+
+
+    <div class="row" style="background-color: rgb(245, 197, 197);">
+        <div class="col-sm-4">
+
+
+        </div>
+
+
+        <div class="col-sm-4"  >
+
+            <h2 > Olimpijske Igre Tokio <span style="color: rgb(146, 124, 0);">2021</span> </h2>
+        </div>
+
+    </div>
+
+    <div class="row" style="background-color: rgb(139, 198, 235);">
+        <div class="col-sm-4">
+            <a routerLink="/organizator" style="color: black;">Nazad</a>
+
+
+        </div>
+        <div class="col-sm-4" style="text-align: center;">
+          
+         <span style="font-weight: 900;">Individualni rekordi</span>
+         
+
+        </div>
+    </div>
+    <div class="row" style="background-color: white;">
+        <div class="col-sm-4"></div>
+        <div class="col-sm-4" style="text-align: center;">
+            <span *ngFor='let s of sportovi_naziv'>
+           <input type="radio" name="sport" value="{{s}}" [(ngModel)]='sport' (ngModelChange)='submit()' style="margin-right: 5px; margin-left: 5px;"  >{{s}}
+            </span>
+           
+            
+           
+
+        </div>
+
+    </div>
+
+    <div class="row" >
+        
+        <div class="col-sm-6">
+            <br/>
+            <span style="font-weight: bold;">Muski rekordi</span>
+            <table style="background-color:rgb(139, 198, 235) ;">
+                <tr>
+                    <th>
+                        Disciplina
+                    </th>
+                    <th>
+                        Rezultat
+                    </th>
+                    <th>
+                        Takmicar
+                    </th>
+                    <th>
+                        Nacionalnost
+                    </th>
+                    <th>
+                        Olimpijske igre
+                    </th>
+                    <th>
+                        Godina
+                    </th>
+                </tr>
+                <tr *ngFor='let r of rekordi'>
+                    <td  > <span *ngIf="r.pol=='Musko'">{{r.disciplina}}</span></td>
+                    <td ><span *ngIf="r.pol=='Musko'">{{r.rekord}}</span></td>
+                    <td ><span *ngIf="r.pol=='Musko'">{{r.takmicar}}</span></td>
+                    <td><span *ngIf="r.pol=='Musko'">{{r.nacionalnost}}</span></td>
+                    <td ><span *ngIf="r.pol=='Musko'">{{r.mesto}}</span></td>
+                    <td><span *ngIf="r.pol=='Musko'">{{r.godina}}</span></td>
+
+                </tr>
+
+            </table>
+        </div>
+
+        <div class="col-sm-6">
+           
+            <br/>
+            <span style="font-weight: bold;">Zenski rekordi</span>
+            <table style="background-color: rgb(245, 197, 197);">
+                <tr>
+                    <th>
+                        Disciplina
+                    </th>
+                    <th>
+                        Rezultat
+                    </th>
+                    <th>
+                        Takmicar
+                    </th>
+                    <th>
+                        Nacionalnost
+                    </th>
+                    <th>
+                        Olimpijske igre
+                    </th>
+                    <th>
+                        Godina
+                    </th>
+                </tr>
+                <tr *ngFor='let r of rekordi'>
+                    <td  *ngIf="r.pol=='Zensko'">{{r.disciplina}} </td>
+                   
+                    <td *ngIf="r.pol=='Zensko'">{{r.rekord}}</td>
+                    <td *ngIf="r.pol=='Zensko'">{{r.takmicar}}</td>
+                    <td *ngIf="r.pol=='Zensko'">{{r.nacionalnost}}</td>
+                    <td *ngIf="r.pol=='Zensko'">{{r.mesto}}</td>
+                    <td *ngIf="r.pol=='Zensko'">{{r.godina}}</td>
+
+                </tr>
+
+            </table>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,113 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-4">
+            <img src="assets/logo.png" style="width: 25%;">
+            <h4>TOKYO 2021</h4>
+
+        </div>
+
+        <div class="col-sm-5">
+            
+            
+
+
+
+
+           
+        </div>
+
+        <div class="col-sm-3" style="text-align: center;">
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+
+            <span style="font-weight: bold;"> Prijavljeni ste kao vodja <br/>             &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+
+                nacionalne delegacije </span>
+           
+
+            <br/>
+
+          <button (click)='odjava()' class="button-39">Odjavite se</button>
+
+    </div>
+
+
+    <div class="row" style="background-color: rgb(245, 197, 197);">
+        <div class="col-sm-4">
+
+
+        </div>
+
+
+        <div class="col-sm-4"  >
+
+            <h2 > Olimpijske Igre Tokio <span style="color: rgb(146, 124, 0);">2021</span> </h2>
+        </div>
+
+    </div>
+
+    <div class="row" style="background-color: rgb(139, 198, 235);">
+        <div class="col-sm-4">
+
+            <a routerLink="/vodja" style="color: black;">Nazad</a>
+
+        </div>
+        <div class="col-sm-4" style="text-align: center;">
+          
+
+         <span style="font-weight: 900;">Pregled prijavljenih sportista</span>  
+           
+    
+        </div>
+
+       
+
+    </div>
+    <div class="row" >
+        <div class="col-sm-4"></div>
+
+        <div class="col-sm-8">
+            <br/>
+             <ol class="breadcrumb breadcrumb-dot" *ngIf='disciplina!="/"'>
+                <li class="breadcrumb-item " > <a routerLink="/vodja/vodja_sportisti" style="color: black;">Vasi Sportovi</a></li>
+                <li class="breadcrumb-item "> <a routerLink="/vodja/vodja_sportisti/sportovi/{{sport}}" style="color: black;">{{sport}}</a></li>
+                <li class="breadcrumb-item active" style="font-weight: 900;">{{disciplina}}</li>
+             </ol>
+
+             <ol class="breadcrumb breadcrumb-dot" *ngIf='disciplina=="/"'>
+                <li class="breadcrumb-item " > <a routerLink="/vodja/vodja_sportisti" style="color: black;">Vasi Sportovi</a></li>
+                <li class="breadcrumb-item active " style="font-weight: 900;"> {{sport}}</li>
+             </ol>
+
+
+
+            <span style="font-weight: bold;">Sportisti: </span>
+            
+            <table *ngIf='sportisti.length!=0'>
+                <th>Ime i Prezime</th>
+                <th>Zemlja</th>
+                <th>Pol</th>
+
+                <tr *ngFor='let s of sportisti'>
+                    <td>{{s.ime_i_prezime}}</td>
+                    <td>{{s.zemlja}}</td>
+                    <td>{{s.pol}}</td>
+                   
+
+                </tr>
+            </table>
+            <br/>
+            <span *ngIf='sportisti.length==0' style="color: crimson; font-weight: 900;">Nema ucesnika</span>
+          
+        </div>
+
+    </div>
+
+</div>

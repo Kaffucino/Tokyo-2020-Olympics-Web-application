@@ -1,0 +1,97 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-4">
+            <img src="assets/logo.png" style="width: 25%;">
+            <h4>TOKYO 2021</h4>
+
+        </div>
+
+        <div class="col-sm-6">
+            
+            
+
+
+
+
+           
+        </div>
+
+        <div class="col-sm-2" style="text-align: center;">
+         
+            <span style="font-weight: bold;"> Prijavljeni ste kao  delegat </span>
+            <br/>
+          <button class="button-39" (click)='odjava()' style="margin-top: 10px;" style="margin-bottom: 10px;">Odjavite se</button>
+            
+           
+
+         
+        </div>
+
+    </div>
+
+
+    <div class="row" style="background-color: rgb(245, 197, 197);">
+        <div class="col-sm-4">
+
+
+        </div>
+
+
+        <div class="col-sm-4"  >
+
+            <h2 > Olimpijske Igre Tokio <span style="color: rgb(146, 124, 0);">2021</span> </h2>
+        </div>
+
+    </div>
+
+    <div class="row" style="background-color: rgb(139, 198, 235);">
+        <div class="col-sm-4">
+
+
+        </div>
+        <div class="col-sm-4" style="text-align: center;">
+          
+
+           <span style="font-weight: bold;">Takmicenja na kojima ste delegat</span> 
+
+        
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-sm-4"></div>
+        
+        <div class="col-sm-8">
+            <br/>
+            <span *ngIf='takmicenja.length==0' style="color: crimson; font-weight: 800;">Trenutno nema takmicenja na kojima ste delegat</span>
+            <table *ngIf='takmicenja.length!=0'>
+                <tr>
+                    <th>Sport</th>
+                    <th>Disciplina</th>
+                    <th>Kategorija</th>
+                    <th>Raspored</th>
+                    <th>Rezultati</th>
+                </tr>
+
+                <tr *ngFor='let t of takmicenja'>
+                    <td>{{t.sport}}</td>
+                    <td>{{t.disciplina}}</td>
+                    <td *ngIf='t.pol=="Musko"'>Muska</td>
+                    <td *ngIf='t.pol=="Zensko"'>Zenska</td>
+
+                    <td><a routerLink="raspored/{{t.idT}}">LINK</a></td>
+                    <td><a routerLink="rezultati/{{t.idT}}">LINK</a></td>
+                    <td *ngIf='t.status=="zavrseno" && t.konkurencija=="individ" && t.sport!="Tenis"' style="border: none;"><button class="button-39" (click)='zavrsi(t.idT)'>Zavrsite</button></td>
+                    <td *ngIf='t.status=="zavrseno" && t.konkurencija!="individ"  && t.sport!="Tenis"' style="border: none;"><button  class="button-39"(click)='zavrsi_ekipno(t.idT)'>Zavrsite</button></td>
+                    <td *ngIf='t.status=="zavrseno" && t.konkurencija=="individ"  && t.sport=="Tenis"' style="border: none;"><button  class="button-39"(click)='zavrsi_tenis(t.idT)'>Zavrsite</button></td>
+
+                </tr>
+
+            </table>
+            <span style="color: red; font-weight: 800;">{{poruka}}</span>
+
+        </div>
+
+    </div>
+
+</div>

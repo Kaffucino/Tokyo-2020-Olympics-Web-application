@@ -1,0 +1,153 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-4">
+            <img src="assets/logo.png" style="width: 25%;">
+            <h4>TOKYO 2021</h4>
+
+        </div>
+
+        <div class="col-sm-6">
+
+        </div>
+        <div class="col-sm-2">
+            <h6> <a class=' pocetni_linkovi' routerLink="">Pocetna strana</a></h6>
+
+            <h6><a class=' pocetni_linkovi' routerLink="/prijava">Prijava na sistem</a> </h6>
+
+            <h6><a class=' pocetni_linkovi' routerLink="/lozinka">Promena lozinke</a> </h6>
+        </div>
+
+
+    </div>
+    <div class="row" style="background-color: rgb(245, 197, 197);">
+        <div class="col-sm-4">
+
+
+        </div>
+
+
+        <div class="col-sm-4">
+
+            <h2> Olimpijske Igre Tokio <span style="color: rgb(146, 124, 0);">2021</span> </h2>
+        </div>
+
+    </div>
+    <div class="row" style="background-color: rgb(139, 198, 235);">
+        <div class="col-sm-4">
+
+
+        </div>
+        <div class="col-sm-4" style="text-align: center;">
+          
+
+            <span style="font-weight: 900;">Registracija</span>
+
+        </div>
+    </div>
+
+
+    <div class="row">
+        <div class="col-sm-4">
+
+
+
+
+
+        </div>
+
+
+        <div class="col-sm-8">
+            <br />
+            <table>
+
+                <tr>
+                    <td>
+                        <span style="font-weight: 700;">Korisnicko ime:</span>
+                    </td>
+                    <td>
+                        <input type="text" name="korime" [(ngModel)]='korime'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span style="font-weight: 700;">Lozinka:</span>
+                    </td>
+                    <td>
+                        <input type="password" name="lozinka" [(ngModel)]='lozinka'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span style="font-weight: 700;">Potvrda lozinke:</span>
+                    </td>
+                    <td>
+                        <input type="password" name="lozinka2" [(ngModel)]='lozinka2'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span style="font-weight: 700;">Ime:</span>
+                    </td>
+                    <td>
+                        <input type="text" name="ime" [(ngModel)]='ime'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span style="font-weight: 700;">Prezime:</span>
+                    </td>
+                    <td>
+                        <input type="text" name="prezime" [(ngModel)]='prezime'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span style="font-weight: 700;">Elektronska posta:</span>
+                    </td>
+                    <td>
+                        <input type="text" name="eposta" [(ngModel)]='eposta'>
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        <span style="font-weight: 700;">Zemlja:</span>
+                    </td>
+                    <td>
+                        <select name="zemlja" [(ngModel)]='zemlja'>
+
+                            <option *ngFor='let z of zemlje' value="{{z.ime}}"> {{z.ime}} </option>
+
+                        </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td>
+                        <span style="font-weight: 700;">Tip:</span>
+                    </td>
+                    <td>
+                        <select name="tip" [(ngModel)]='tip'>
+                            <option value="delegat">Delegat</option>
+                            <option value="vodja">Vodja Nacionalne delegacije</option>
+
+                        </select>
+
+                    </td>
+
+                </tr>
+
+
+            </table>
+            <button class="button-45" (click)='registracija()'>Registrujte se</button>
+            &nbsp;
+            <span style="color: red; font-weight: 900;">{{poruka}}</span>
+
+        </div>
+
+
+
+    </div>
+
+
+</div>

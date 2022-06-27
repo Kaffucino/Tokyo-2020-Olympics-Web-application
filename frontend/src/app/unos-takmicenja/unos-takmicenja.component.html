@@ -1,0 +1,131 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-4">
+            <img src="assets/logo.png" style="width: 25%;">
+            <h4>TOKYO 2021</h4>
+
+        </div>
+
+        <div class="col-sm-5">
+            
+            
+
+
+
+
+           
+        </div>
+
+        <div class="col-sm-3 " style="text-align: center;">
+          
+
+
+            <span style="font-weight: bold; "> Prijavljeni ste kao organizator </span>
+            <br/>
+          
+            
+
+          <button (click)='odjava()' class="button-39" style="margin-top: 10px;">Odjavite se</button>
+            
+           
+
+         
+        </div>
+
+    </div>
+
+
+    <div class="row" style="background-color: rgb(245, 197, 197);;">
+        <div class="col-sm-4">
+
+
+        </div>
+
+
+        <div class="col-sm-4"  >
+
+            <h2 > Olimpijske Igre Tokio <span style="color: rgb(146, 124, 0);">2021</span> </h2>
+        </div>
+
+    </div>
+
+    <div class="row" style="background-color: rgb(139, 198, 235);">
+        <div class="col-sm-4">
+            <a routerLink="/organizator" style="color: black;">Nazad</a>
+
+
+        </div>
+        <div class="col-sm-4" style="text-align: center;">
+           
+         <span style="font-weight: bold;">Unos takmicenja</span>
+         
+
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-sm-4">
+    
+
+
+        </div>
+        <div class="col-sm-4">
+           <br/>
+         <table>
+            <tr>
+                <td> <span style="font-weight: 700;">Sport:</span></td>
+                <td>
+                    <select name="sport" [(ngModel)]='sport' (ngModelChange)='submit()'>
+                        <option *ngFor='let s of sportovi_naziv' value="{{s}}">{{s}}</option>
+                    </select>
+                </td>
+
+            </tr>
+            <tr>
+                <td> <span style="font-weight: 700;">Disciplina:</span></td>
+                <td>
+                    <select name="disciplina"  [(ngModel)]='disciplina'>
+                        <option *ngFor='let d of discipline' value="{{d}}">{{d}}</option>
+
+                    </select>
+                </td>
+            </tr>
+            <tr>
+                <td> <span style="font-weight: 700;">Pol:</span></td>
+                <td><input type="radio" name="pol" value="Musko" [(ngModel)]='pol' style="margin-right: 5px;">M &nbsp;  <input type="radio" name="pol" value="Zensko" [(ngModel)]='pol'  style="margin-right: 5px;">Z  </td>
+               
+
+            </tr>
+            <tr>
+                <td> <span style="font-weight: 700;">Datum pocetka:</span>:</td>
+                <td><input type="date" name="pocetak" [(ngModel)]='pocetak'></td>
+            </tr>
+            <tr>
+                <td> <span style="font-weight: 700;">Datum kraja:</span>:</td>
+                <td><input type="date"  name="kraj" [(ngModel)]='kraj'></td>
+            </tr>
+            <tr>
+                <td> <span style="font-weight: 700;">Lokacije:</span></td>
+                <td><select  name="mesta" multiple [(ngModel)]='mesta' >
+                    <option *ngFor='let l of lokacije' value="{{l.naziv}}">{{l.naziv}}</option>
+                </select>
+            </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button class="button-45" (click)='unesi()'>Unesite</button>
+                    
+                </td>
+            </tr>
+           
+
+         </table>
+           
+         <span style="color: red; font-weight: 800;">{{poruka}}</span>
+           
+
+        </div>
+        
+    </div>
+
+</div>

@@ -1,0 +1,119 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-4">
+            <img src="assets/logo.png" style="width: 25%;">
+            <h4>TOKYO 2021</h4>
+
+        </div>
+
+        <div class="col-sm-6">
+
+
+
+           
+        </div>
+
+        <div class="col-sm-2">
+         
+          <h6> <a routerLink="prijava" class="pocetni_linkovi">Prijava na sistem</a> </h6>
+          
+          <h6><a routerLink="lozinka" class="pocetni_linkovi">Promenite lozinku</a> </h6>
+          
+          <h6><a routerLink="registracija" class="pocetni_linkovi">Nemate nalog?</a> </h6>
+           
+
+         
+        </div>
+
+    </div>
+
+
+       <div class="row" style="background-color: rgb(245, 197, 197);">
+        <div class="col-sm-4">
+
+
+        </div>
+
+
+        <div class="col-sm-4"  >
+
+            <h2 > Olimpijske Igre Tokio <span style="color: rgb(146, 124, 0);">2021</span> </h2>
+        </div>
+
+    </div>
+
+    <div class="row" style="background-color: rgb(139, 198, 235);">
+        <div class="col-sm-4">
+            <a routerLink="" style="color: black;">Nazad</a>
+
+        </div>
+        <div class="col-sm-4" style="text-align: center;">
+           
+            
+         <span style="font-weight: 900;">Zemlje ucesnice</span>
+         
+
+        </div>
+    </div>
+
+    <div class="row" >
+        
+        <div class="col-sm-4">
+
+           
+        </div>
+        <div class="col-sm-8">
+            &nbsp;           
+         
+            <br/>         
+          
+            <br/>        <br/>    
+            <table>
+                <tr>
+                  
+                    <th>
+                        Naziv
+                    </th>
+                    <!-- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -->
+                    <th>
+                        Broj sportista
+                    </th>
+                    <!-- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -->
+
+                    <th>
+                        Zastava
+                    </th>
+                    
+                   
+                </tr>
+
+                <tr *ngFor='let z of zemlje | paginate:{itemsPerPage:10,currentPage:stranica,totalLength:duzina}'>
+                   
+                    <td>
+                        {{z.ime}}
+                    </td>
+                   
+                    <!-- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -->
+                    <td>
+                        {{z.br_sportista}}
+                    </td>
+                    <!-- &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; -->
+
+                     <td>
+                        <img src="assets/{{z.zastava}}" width="60px" height="38px" >
+                    </td> 
+                </tr>
+               
+            </table>
+            <br/>
+            <pagination-controls class=" my-pagination" (pageChange)="stranica=$event"></pagination-controls>
+
+        </div>
+
+
+
+    </div>
+
+
+</div>

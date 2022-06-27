@@ -1,0 +1,159 @@
+/* You can add global styles to this file, and also import other style files */
+body{
+    background-image: url(/assets/logo3.jpg);
+    background-size: 130%;
+    font-size: 25px;
+    background-repeat:repeat;
+    
+
+}
+.button-45{
+  height: 60px;
+}
+.button-39{
+  height: 60px;
+  
+}
+
+input[type=checkbox]{
+  transform: scale(1.5);
+}
+input[type=radio]{
+  transform: scale(1.5);
+}
+
+
+
+h2{
+  font-size: 40px;
+  text-align: center;
+}
+h4{
+  font-size: 35px;
+}
+
+.footer{
+  bottom: 0;
+  
+  /* background-image:url(/assets/logo2.jpg); */
+  
+  width: 100%;
+  height: 30%;
+  
+}
+
+.pocetni_linkovi{
+  font-size: 30px;
+}
+
+
+a {
+    display: inline-block;
+    transition: .3s;
+    font-weight:bold;
+    text-decoration:none;
+    }
+    a:hover {
+    -webkit-transform: scale(1.2);
+    transform: scale(1.2);
+    }
+
+    
+
+    
+
+    
+
+    
+    
+    /* CSS */
+    .button-39 {
+      background-color: #FFFFFF;
+      border: 1px solid rgb(209,213,219);
+      border-radius: .5rem;
+      box-sizing: border-box;
+      color: #111827;
+      font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+      font-size: 1,15rem;
+      font-weight: 600;
+      line-height: 1.25rem;
+      padding: .75rem 1rem;
+      text-align: center;
+      text-decoration: none #D1D5DB solid;
+      text-decoration-thickness: auto;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+      cursor: pointer;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: manipulation;
+      margin-bottom: 2px;
+    }
+    
+    .button-39:hover {
+      background-color: rgb(249,250,251);
+    }
+    
+    .button-39:focus {
+      outline: 2px solid transparent;
+      outline-offset: 2px;
+    }
+    
+    .button-39:focus-visible {
+      box-shadow: none;
+    }
+
+
+
+.button-45 {
+  align-items: center;
+  background-color: #FFE7E7;
+  background-position: 0 0;
+  border: 1px solid #FEE0E0;
+  border-radius: 11px;
+  box-sizing: border-box;
+  color: #D33A2C;
+  cursor: pointer;
+  display: flex;
+  font-size: 1.5rem;
+  font-weight: 700;
+  line-height: 33.4929px;
+  list-style: outside url(https://www.smashingmagazine.com/images/bullet.svg) none;
+  padding: 2px 12px;
+  text-align: left;
+  text-decoration: none;
+  text-shadow: none;
+  text-underline-offset: 1px;
+  transition: border .2s ease-in-out,box-shadow .2s ease-in-out;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  white-space: nowrap;
+  word-break: break-word;
+}
+
+.button-45:active,
+.button-45:hover,
+.button-45:focus {
+  outline: 0;
+}
+
+
+.button-45:active {
+  background-color: #D33A2C;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px 0 inset;
+  color: #FFFFFF;
+}
+
+.button-45:hover {
+  background-color: #FFE3E3;
+  border-color: #FAA4A4;
+}
+
+.button-45:active:hover,
+.button-45:focus:hover,
+.button-45:focus {
+  background-color: #D33A2C;
+  box-shadow: rgba(0, 0, 0, 0.12) 0 1px 3px 0 inset;
+  color: #FFFFFF;
+}
+

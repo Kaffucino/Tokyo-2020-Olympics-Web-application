@@ -1,0 +1,214 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-4">
+            <img src="assets/logo.png" style="width: 25%;">
+            <h4>TOKYO 2021</h4>
+
+        </div>
+
+        <div class="col-sm-6">
+
+
+
+           
+        </div>
+
+        <div class="col-sm-2">
+         
+          <h6> <a routerLink="prijava" class="pocetni_linkovi">Prijava na sistem</a> </h6>
+          
+          <h6><a routerLink="lozinka" class="pocetni_linkovi">Promenite lozinku</a> </h6>
+          
+          <h6><a routerLink="registracija" class="pocetni_linkovi">Nemate nalog?</a> </h6>
+           
+
+         
+        </div>
+
+    </div>
+
+
+    <div class="row" style="background-color: rgb(245, 197, 197);">
+        <div class="col-sm-4">
+
+
+        </div>
+
+
+        <div class="col-sm-4"  >
+
+            <h2 > Olimpijske Igre Tokio <span style="color: rgb(146, 124, 0);">2021</span> </h2>
+        </div>
+
+    </div>
+
+    <div class="row" style="background-color: rgb(139, 198, 235);">
+        <div class="col-sm-4">
+            <a routerLink="" style="color: black;">Nazad</a>
+
+        </div>
+        <div class="col-sm-4">
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;  &nbsp;
+            &nbsp;
+            &nbsp;  &nbsp;
+            &nbsp;
+            &nbsp;
+         <span style="font-weight: 900;">Sportisti</span>
+         
+
+        </div>
+    </div>
+
+    <div class="row" >
+        
+        <div class="col-sm-4">
+            <br/>
+           
+
+            <span style="font-weight: 900;" >Pretraga sportista:</span>
+            <br/>
+            <br/>
+
+            <table>
+              <tr>
+                  <td><span style="font-weight: 700;">Ime i Prezime:</span></td>
+                    <td><input type="text" name="ime_i_prezime" [(ngModel)]='ime_i_prezime' ></td>
+                </tr>
+                <tr>
+                    <td><span style="font-weight: 700;">Zemlja:</span></td>
+                      <td>
+                        <select name="zemlja" [(ngModel)]='zemlja' >
+                            <option *ngFor='let z of zemlje' value="{{z.ime}}">
+                              {{z.ime}}
+                            </option>
+                            
+                            <option value='undefined'>Sve zemlje</option>
+                        </select>
+
+                      </td>
+                  </tr>
+                  <tr>
+                    <td><span style="font-weight: 700;">Sport:</span></td>
+                      <td>
+                        <select name="sport" [(ngModel)]='sport' (ngModelChange)='submit()'>
+                           <option *ngFor='let s of sportovi' value="{{s}}">
+                             {{s}}
+                           </option>
+                            <option value='undefined'>Svi sportovi</option>
+
+                        </select>
+
+                      </td>
+                  </tr>
+                  <tr>
+                    <td><span style="font-weight: 700;">Disciplina:</span></td>
+                      <td>
+                        <select name="disciplina"   [(ngModel)]='disciplina' >
+                            <option *ngFor='let d of discipline' value="{{d}}">{{d}}</option>
+                            
+                            <option value='undefined'>Sve discipline</option>
+
+                        </select>
+
+                      </td>
+                  </tr>
+                  <tr>
+                      <td><span style="font-weight: 700;">Pol:</span></td>
+                      <td>
+                        <input type="radio" name="pol" [(ngModel)]='pol'  value="Musko" (click)='submit_radio_musko()'> M
+                        &nbsp;                       
+                        &nbsp;
+                        &nbsp;
+
+                        <input type="radio" name="pol" [(ngModel)]='pol'  value="Zensko" (click)='submit_radio_zensko()' > Z
+
+                      </td>
+                     
+                  </tr>
+              
+
+            </table>
+            &nbsp;                       
+            &nbsp;
+            &nbsp;
+            &nbsp;                       
+            &nbsp;
+            &nbsp;
+            &nbsp;                       
+            &nbsp;
+            &nbsp;
+            &nbsp;                       
+            &nbsp;
+            <input type="checkbox" name="medalja" [(ngModel)]='medalja'> Samo osvajaci medalja
+            <br/>
+           
+                                
+            
+           
+            <button class='button-45' (click)='pretrazi()'>Pretrazi</button>
+           
+        </div>
+        <div class="col-sm-8">
+          <br/>
+          <span style="font-weight: 900;">Tabela sportista:</span>
+          <br/>
+          <br/>
+
+            <table id="table2">
+              <tr>
+                  <th>Ime i Prezime</th>
+                  <th>Zemlja</th>
+                  <th>Sport </th>
+                  <th>Disciplina</th>
+                  <th>Pol </th>
+                  <th>Osvajac medalje </th>
+
+
+              </tr>
+              <tr *ngFor='let s of sportisti | paginate:{itemsPerPage:max_prikaz,currentPage:stranica,totalLength:duzina}'>
+                  <td>{{s.ime_i_prezime}}</td>  
+                  <td>{{s.zemlja}}</td>
+                  <td>{{s.sport}}</td>
+                  <td>{{s.disciplina}}</td>
+                  <td>{{s.pol}}</td>
+                  <td>
+                    <span *ngIf='s.medalja==true'>DA</span>
+                    <span *ngIf='s.medalja==false'>NE</span>
+
+                  </td>
+
+              </tr>
+            </table>
+
+            <br/>
+            <pagination-controls class=" my-pagination" (pageChange)="stranica=$event"></pagination-controls>
+
+            <input type="radio" name="prikaz" value="10" [(ngModel)]='prikaz'><span style="font-weight: 700; margin-left: 10px; margin-right: 10px;">10</span>
+            <input type="radio" name="prikaz" value="20" [(ngModel)]='prikaz'><span style="font-weight: 700;  margin-left: 10px; margin-right: 10px;">20</span>
+            <input type="radio" name="prikaz" value="50" [(ngModel)]='prikaz'  ><span style="font-weight: 700;  margin-left: 10px; margin-right: 10px;">50</span>
+            <input type="radio" name="prikaz" value="100"[(ngModel)]='prikaz'><span style="font-weight: 700;  margin-left: 10px; margin-right: 10px;">100</span>
+            &nbsp;
+            <button (click)='promeni_prikaz()' class="button-45">Promenite prikaz</button>
+            <br/>
+            
+            <br/>
+           
+           
+
+        </div>
+
+
+
+    </div>
+
+
+</div>

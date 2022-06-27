@@ -1,0 +1,122 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-4">
+            <img src="assets/logo.png" style="width: 25%;">
+            <h4>TOKYO 2021</h4>
+
+        </div>
+
+        <div class="col-sm-5">
+            
+            
+
+
+
+
+           
+        </div>
+
+        <div class="col-sm-3 " style="text-align: center;">
+          
+
+
+            <span style="font-weight: bold; "> Prijavljeni ste kao organizator </span>
+            <br/>
+          
+            
+
+          <button (click)='odjava()' class="button-39" style="margin-top: 10px;">Odjavite se</button>
+            
+           
+
+         
+        </div>
+
+    </div>
+
+
+    <div class="row" style="background-color: rgb(245, 197, 197);">
+        <div class="col-sm-4">
+
+
+        </div>
+
+
+        <div class="col-sm-4"  >
+
+            <h2 > Olimpijske Igre Tokio <span style="color: rgb(146, 124, 0);">2021</span> </h2>
+        </div>
+
+    </div>
+
+    <div class="row" style="background-color: rgb(139, 198, 235);">
+        <div class="col-sm-4">
+            <a routerLink="/organizator" style="color: black;">Nazad</a>
+
+
+        </div>
+        <div class="col-sm-4" style="text-align: center;">
+          
+         <span style="font-weight: bold;">Unos sportova</span>
+         
+
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-sm-5" >
+        <br/>
+           
+        <span style="font-weight: 900;">Trenutni sportovi i discipline:</span>
+        <table style="background-color: rgb(139, 198, 235);">
+            <tr>
+                <th>Sport</th>
+                <th>Disciplina</th>
+            </tr>
+            <tr *ngFor='let s of trenutni_sportovi'>
+                <td><span style="font-weight: 700;">{{s.naziv}}</span></td>
+                <td><span style="font-weight: 700;">{{s.disciplina}}</span></td>
+            </tr>
+
+        </table>
+
+        </div>
+        <div class="col-sm-4">
+           <br/>
+            <table>
+                <tr>
+                    <td><span style="font-weight: 700;">Sportovi:</span></td>
+                    <td><select name="sport"  [(ngModel)]='sport' (ngModelChange)='submit()'>
+                        
+                        <option *ngFor='let s of sportovi' value="{{s}}">{{s}}</option>
+                    </select>
+                </td>
+                </tr>
+                <tr>
+                    <td><span style="font-weight: 700;">Discipline:</span></td>
+                    <td><select name="disciplina"  [(ngModel)]='disciplina'>
+                        
+                        <option *ngFor='let d of discipline' value="{{d}}">{{d}}</option>
+                    </select>
+                </td>
+                </tr>
+
+              <tr>
+                  <td >
+                    <button class="button-45" (click)='unesi()'>Unesite</button>  
+                  </td>
+                  <td>
+                    <span style="color: red; font-weight: bold;">{{poruka}}</span>
+                  </td>
+              </tr>
+
+            </table>
+           
+            
+           
+
+        </div>
+
+    </div>
+
+</div>

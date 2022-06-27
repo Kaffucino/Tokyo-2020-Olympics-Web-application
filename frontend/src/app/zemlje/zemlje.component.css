@@ -1,0 +1,18 @@
+
+
+table,td,th{
+    border: 1px solid black;
+
+}
+table{
+    width: 50%;
+    background-color: rgb(245, 197, 197);
+    border-collapse: collapse;
+
+}
+td,th{
+    text-align: center;
+}
+.my-pagination /deep/ .ngx-pagination .current{
+    background-color: rgb(52, 157, 223);
+}

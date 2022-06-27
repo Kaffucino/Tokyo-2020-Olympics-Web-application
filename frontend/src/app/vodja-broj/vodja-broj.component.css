@@ -1,0 +1,13 @@
+
+table,td,th{
+    border: 1px solid black;
+
+}
+table{
+    width: 50%;
+    border-collapse: collapse;
+    background-color: rgb(139, 198, 235);
+}
+td,th{
+    text-align: center;
+}

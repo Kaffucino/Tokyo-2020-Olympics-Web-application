@@ -1,0 +1,121 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-4">
+            <img src="assets/logo.png" style="width: 25%;">
+            <h4>TOKYO 2021</h4>
+
+        </div>
+
+        <div class="col-sm-6">
+
+
+
+           
+        </div>
+
+        <div class="col-sm-2">
+         
+          <h6> <a  class="pocetni_linkovi"routerLink="prijava">Prijava na sistem</a> </h6>
+          
+          <h6><a class="pocetni_linkovi" routerLink="lozinka">Promenite lozinku</a> </h6>
+          
+          <h6><a  class="pocetni_linkovi"routerLink="registracija">Nemate nalog?</a> </h6>
+           
+
+         
+        </div>
+
+    </div>
+
+    <div class="row" style="background-color: rgb(245, 197, 197);">
+        <div class="col-sm-4">
+
+
+        </div>
+
+
+        <div class="col-sm-4"  >
+
+            <h2 > Olimpijske Igre Tokio <span style="color: rgb(146, 124, 0);">2021</span> </h2>
+        </div>
+
+    </div>
+
+    <div class="row" style="background-color: rgb(139, 198, 235);">
+        <div class="col-sm-4">
+            <a routerLink="" style="color: black;">Nazad</a>
+
+        </div>
+        <div class="col-sm-4" style="text-align: center;">
+           
+         <span style="font-weight: 900;">Osvojene medalje</span>
+         
+
+        </div>
+    </div>
+
+    <div class="row" >
+        
+        <div class="col-sm-4">
+            <br/>
+            <table>
+                <tr>
+                    <th>Rang</th>
+                    <th>Zemlja</th>
+                    <th><img src="assets/zlato.png" style="width: 40px;"></th>
+                    <th><img src="assets/srebro.png" style="width: 40px;"></th>
+                    <th><img src="assets/bronza.png" style="width: 48px ; margin-bottom: 3px;"></th>
+                    <th>Broj medalja</th>
+
+                </tr>
+
+                <tr *ngFor='let r of rezultati | paginate:{itemsPerPage:10,currentPage:stranica,totalLength:duzina}'>
+                    <td>
+                        {{r.rang}}
+                    </td>
+                    <td>
+                        {{r.ime}}
+                    </td>
+                    <td>
+                        {{r.zlato}}
+                    </td>
+                    <td>
+                        {{r.srebro}}
+                    </td>
+                    <td>
+                        {{r.bronza}}
+                    </td>
+                    <td>
+                        {{r.br_medalja}}
+                    </td>
+                </tr>
+
+            </table>
+            <br/>
+            <pagination-controls class=" my-pagination" (pageChange)="stranica=$event"></pagination-controls>
+           
+        </div>
+        <div class="col-sm-4">
+           
+
+            
+
+        </div>
+
+        <div class="col-sm-4">
+           
+
+            <br/>
+            <div id="divChart">
+                <canvas id="myChart"></canvas>
+
+            </div>
+
+        </div>
+
+
+    </div>
+
+
+</div>

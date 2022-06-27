@@ -1,0 +1,247 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-4">
+            <img src="assets/logo.png" style="width: 25%;">
+            <h4>TOKYO 2021</h4>
+
+        </div>
+
+      
+        <div class="col-sm-6">
+            
+            
+
+
+
+
+           
+        </div>
+
+        <div class="col-sm-2" style="text-align: center;">
+         
+            <span style="font-weight: bold;"> Prijavljeni ste kao   delegat </span>
+            <br/>
+          <button class="button-39" (click)='odjava()' style="margin-top: 10px;" style="margin-bottom: 10px;">Odjavite se</button>
+            
+           
+
+         
+        </div>
+
+    </div>
+
+
+    <div class="row" style="background-color: rgb(245, 197, 197);">
+        <div class="col-sm-4">
+
+
+        </div>
+
+
+        <div class="col-sm-4"  >
+
+            <h2 > Olimpijske Igre Tokio <span style="color: rgb(146, 124, 0);">2021</span> </h2>
+        </div>
+
+    </div>
+
+    <div class="row" style="background-color: rgb(139, 198, 235);">
+        <div class="col-sm-4">
+
+            <a style="color: black;" routerLink="/delegat">Nazad</a>
+
+        </div>
+        <div class="col-sm-4" style="text-align: center;">
+            
+
+           <span style="font-weight: bold;">Raspored takmicenja</span> 
+
+        
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-sm-4">
+            <br/>
+            <table style="background-color: rgb(139, 198, 235);;">
+
+                <tr *ngFor='let e of ekipe'>
+                    <td><span style="font-weight: 700;">{{e.naziv}}</span> &nbsp; </td>
+                    <td><span style="font-weight: 700;">{{e.zemlja}}</span> &nbsp; </td>
+                    <td *ngIf='!e.grupa'> <span style="font-weight: 700;">Grupa /</span></td>
+                    <td *ngIf='e.grupa'><span style="font-weight: 700;">Grupa {{e.grupa}}</span></td>
+                </tr>
+
+            </table>
+
+        </div>
+        
+        <div class="col-sm-8">
+            <br/>
+
+            <table *ngIf='takmicenje.konkurencija=="individ" && takmicenje.sport!="Tenis"'>
+
+                <tr>
+                    <td><span style="font-weight: 700;">Lokacija:</span> </td>
+                    <td>
+                        <span style="font-weight: 500;">{{lokacije}}</span>
+                </td>
+                </tr>
+                <tr>
+                    <td><span style="font-weight: 700;">Datum:</span> </td>
+                    <td>
+                        <input type="date" name="datum" min="{{takmicenje.datum_pocetak}}" max="{{takmicenje.datum_kraj}}" [(ngModel)]='datum' > 
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td><span style="font-weight: 700;">Vreme:</span> </td>
+                    <td>
+                        <input type="time" name="vreme" [(ngModel)]='vreme' >
+                    </td>
+
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button class="button-45" (click)='unesi()'>Unesite</button>
+                    </td>
+                </tr>
+
+            </table>
+          
+
+            <table *ngIf='takmicenje.konkurencija!="individ" && takmicenje.status!="formirano"'>
+
+                <tr>
+                    <td><span style="font-weight: 700;">Termini:</span></td>
+                    <td><span style="font-weight: 700;">{{brojac}}/{{potrebno}}</span></td>
+                </tr>
+                <tr>
+                    <td> <span style="font-weight: 700;">Faza:</span></td>
+                    <td><select name="faza" [(ngModel)]='faza' (ngModelChange)='submit()' >
+                        <option value="undefined" hidden></option>
+                        <option *ngIf='ekipe.length==12' value="grupna">Grupna</option>
+                        <option *ngIf='ekipe.length==12 || ekipe.length==8 ' value="cetvrt">Cetvrt finale</option>
+                        <option value="polu">Polu finale</option>
+                        <option value="finale">Finale</option>
+                    </select>
+                    </td>
+                </tr>
+                
+                <tr>
+                    
+
+                    <td><span style="font-weight: 700;">Lokacija:</span> </td>
+                    <td>
+                        <select name="lokacija" [(ngModel)]='lokacija' >
+                            <option *ngFor='let l of lokacije' value="{{l}}" >
+                                {{l}}
+
+                            </option>
+
+                        </select>
+                </td>
+                </tr>
+                
+                <tr>
+                    <td><span style="font-weight: 700;">Datum:</span> </td>
+                    <td>
+                        <input min="{{takmicenje.datum_pocetak}}" max="{{takmicenje.datum_kraj}}" type="date" name="datum" [(ngModel)]='datum' > 
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td><span style="font-weight: 700;">Vreme:</span> </td>
+                    <td>
+                        <input type="time" name="vreme" [(ngModel)]='vreme' >
+                    </td>
+                    
+
+                </tr>
+               
+                <tr>
+                    <td colspan="2">
+                        <button class="button-45" (click)='unesi_ekipni()'>Unesite</button>
+                    </td>
+                </tr>
+
+            </table>
+
+            <table *ngIf='takmicenje.konkurencija=="individ" && takmicenje.sport=="Tenis"'>
+                <tr>
+                    <td><span style="font-weight: 700;">Termini:</span></td>
+                    <td><span style="font-weight: 700;">{{brojac}}/{{potrebno}}</span></td>
+                </tr>
+                <tr>
+                    <td> <span style="font-weight: 700;">Faza:</span></td>
+                    <td><select name="faza" [(ngModel)]='faza' (ngModelChange)='submit()' >
+                        <option value="undefined" hidden></option>
+                        <option *ngIf='nosioci==16' value="osmina">Osmina finala</option>
+                        <option *ngIf='nosioci==16 || nosioci==8 ' value="cetvrt">Cetvrt finale</option>
+                        <option value="polu">Polu finale</option>
+                        <option value="finale">Finale</option>
+                    </select>
+                    </td>
+                </tr>
+
+                <tr>
+                    <td><span style="font-weight: 700;">Lokacija:</span> </td>
+                    <td>
+                        <select name="lokacija" [(ngModel)]='lokacija' >
+                            <option *ngFor='let l of lokacije' value="{{l}}" >
+                                {{l}}
+
+                            </option>
+
+                        </select>
+                </td>
+                </tr>
+                <tr>
+                    <td><span style="font-weight: 700;">Datum:</span> </td>
+                    <td>
+                        <input type="date" name="datum" min="{{takmicenje.datum_pocetak}}" max="{{takmicenje.datum_kraj}}" [(ngModel)]='datum' > 
+                    </td>
+
+                </tr>
+
+                <tr>
+                    <td><span style="font-weight: 700;">Vreme:</span> </td>
+                    <td>
+                        <input type="time" name="vreme" [(ngModel)]='vreme' >
+                    </td>
+
+                </tr>
+                <tr>
+                    <td colspan="2">
+                        <button class="button-45" (click)='unesi_ekipni()'>Unesite</button>
+                    </td>
+                </tr>
+
+            </table>
+
+
+
+
+
+            <span style="color: red; font-weight: 900;">{{poruka}}</span>
+            &nbsp;            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+
+            <button class="button-39" *ngIf='takmicenje.status=="formirano" && takmicenje.konkurencija!="individ"' (click)='algoritam()'>Algoritam random</button>
+
+
+        </div>
+
+    </div>
+
+</div>

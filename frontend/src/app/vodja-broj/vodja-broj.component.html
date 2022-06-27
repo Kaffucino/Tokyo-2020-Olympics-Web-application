@@ -1,0 +1,110 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-4">
+            <img src="assets/logo.png" style="width: 25%;">
+            <h4>TOKYO 2021</h4>
+
+        </div>
+
+        <div class="col-sm-5">
+            
+            
+
+
+
+
+           
+        </div>
+
+        <div class="col-sm-3">
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+
+            <span style="font-weight: bold;"> Prijavljeni ste kao vodja <br/>             &nbsp;
+                &nbsp;
+                &nbsp;
+                &nbsp;
+                nacionalne delegacije </span>
+           
+
+            <br/>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;            &nbsp;
+
+          <button (click)='odjava()' class="button-39">Odjavite se</button>
+
+    </div>
+
+
+    <div class="row" style="background-color: rgb(245, 197, 197);">
+        <div class="col-sm-4">
+
+
+        </div>
+
+
+        <div class="col-sm-4"  >
+
+            <h2 > Olimpijske Igre Tokio <span style="color: rgb(146, 124, 0);">2021</span> </h2>
+        </div>
+
+    </div>
+
+    <div class="row" style="background-color: rgb(139, 198, 235);">
+        <div class="col-sm-4">
+
+            <a routerLink="/vodja" style="color: black;">Nazad</a>
+
+        </div>
+        <div class="col-sm-8">
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;
+            &nbsp;&nbsp;
+            &nbsp;
+            &nbsp;&nbsp;
+            &nbsp;
+            &nbsp;
+           
+            &nbsp;
+            &nbsp;
+
+            <span style="font-weight: 900;">Broj clanova tima</span> 
+
+
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-sm-5"></div>
+        <div class="col-sm-3">
+           &nbsp;
+           
+            <table >
+                
+               <th>Sport</th>
+               <th>[Broj takmicara]</th>
+                <tr *ngFor='let b of brojac'>
+                    <td>{{b.sport}}</td>
+                                     
+                  
+                   
+
+                    <td>[{{b.broj}}]</td>
+                </tr>
+
+            </table>
+       
+        
+
+          
+        
+
+        </div>
+
+    </div>
+
+</div>

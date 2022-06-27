@@ -1,0 +1,205 @@
+<div class="container-fluid">
+
+    <div class="row">
+        <div class="col-sm-4">
+            <img src="assets/logo.png" style="width: 25%;">
+            <h4>TOKYO 2021</h4>
+
+        </div>
+
+        <div class="col-sm-5">
+            
+            
+
+
+
+
+           
+        </div>
+
+        <div class="col-sm-3 " style="text-align: center;">
+          
+
+
+            <span style="font-weight: bold; "> Prijavljeni ste kao organizator </span>
+            <br/>
+          
+            
+
+          <button (click)='odjava()' class="button-39" style="margin-top: 10px;">Odjavite se</button>
+            
+           
+
+         
+        </div>
+
+    </div>
+
+
+    <div class="row" style="background-color: rgb(245, 197, 197);">
+        <div class="col-sm-4">
+
+
+        </div>
+
+
+        <div class="col-sm-4"  >
+
+            <h2 > Olimpijske Igre Tokio <span style="color: rgb(146, 124, 0);">2021</span> </h2>
+        </div>
+
+    </div>
+
+    <div class="row" style="background-color: rgb(139, 198, 235);">
+        <div class="col-sm-4">
+            <a style="color: black;" routerLink='/organizator'>Nazad</a>
+
+        </div>
+        <div class="col-sm-4" style="text-align: center;">
+                    
+
+
+         <span style="font-weight: 900;">Dodela takmicara</span>
+        
+        </div>
+    </div>
+    <div class="row" >
+        <div class="col-sm-3"></div>
+        <div class="col-sm-9">
+           <br/>
+            <table>
+                <tr>
+                    <td><span style="font-weight: 700;">Formirana takmicenja:</span></td>
+                    <td>
+                        <select name="takmicenje" [(ngModel)]='takmicenje' (ngModelChange)='submit()'>
+                            <option *ngFor='let t of takmicenja' value="{{t.sport}}-{{t.disciplina}}-{{t.pol}}">{{t.sport}}-{{t.disciplina}} - <span *ngIf='t.pol=="Musko"'>Muskarci</span>
+                                <span *ngIf='t.pol=="Zensko"'>Zene</span>
+                            </option>
+                        
+                        </select>
+                    </td>
+                      <td><span style="font-weight: 700;">Trenutan broj prihvacenih: {{brojac}}</span></td>  
+                      
+
+                     <td> <button class="button-45" (click)='unesi()' *ngIf='prikaz_dugmeta==true && formiran_tenis==false'>Dodelite</button></td>  
+                    <td> <button class="button-45" (click)='formiraj()' *ngIf='brojac>0 && formiran_tenis==false' >Formirajte</button></td>   
+
+
+                        <br/>
+                        <span style="color: red; font-weight: 800;">{{poruka}}</span>
+
+                   
+                </tr>
+               <tr *ngIf='prikaz_dugmeta==false'>
+                <span style="font-weight: 900; color: red;" >Nema prijava</span>
+
+               </tr>
+                <tr *ngFor='let s of sportisti' >
+                    
+                    <td *ngIf='individ==true && formiran_tenis==false' style="font-weight: 600;">{{s.ime_i_prezime}}-{{s.zemlja}} <input type="checkbox" name="izabran" [(ngModel)]='s.izabran'></td>
+                </tr>
+                                            
+           
+            
+                <tr *ngFor='let e of ekipe'>
+                    <td *ngIf='individ==false' style="font-weight: 600;">{{e.zemlja}} <input type="checkbox" name="izabran" [(ngModel)]='e.izabrana'></td>
+                </tr>
+           
+                
+
+
+            </table>
+            <br/>
+
+            <table *ngIf='formiran_tenis==true'>
+                <tr>
+                    <th>1.Nosilac</th>
+                    <th>2.Nosilac</th>
+                    <th>3.Nosilac</th>
+                    <th>4.Nosilac</th>
+                    
+                    
+                    
+                    
+
+
+                </tr>
+                <tr>
+                    <td><select name="nosilac1" [(ngModel)]='prvi'><option *ngFor='let s of sportisti_nosioci' value="{{s.idS}}">{{s.ime_i_prezime}}</option></select></td>
+                    <td><select  name="nosilac2" [(ngModel)]='drugi' ><option *ngFor='let s of sportisti_nosioci' value="{{s.idS}}">{{s.ime_i_prezime}}</option></select></td>                    
+                    <td><select  name="nosilac3" [(ngModel)]='treci' ><option *ngFor='let s of sportisti_nosioci' value="{{s.idS}}">{{s.ime_i_prezime}}</option></select></td>
+                    <td><select  name="nosilac4" [(ngModel)]='cetvrti' ><option *ngFor='let s of sportisti_nosioci' value="{{s.idS}}">{{s.ime_i_prezime}}</option></select></td>
+                    
+
+                </tr>
+               
+
+
+                <tr *ngIf='nosioci==8 || nosioci==16'>
+                    <th >5.Nosilac</th>
+                    <th >6.Nosilac</th>
+                    <th>7.Nosilac</th>
+                    <th >8.Nosilac</th>
+
+                </tr>
+                <tr  *ngIf='nosioci==8 || nosioci==16'>
+
+                    <td ><select name="nosilac5" [(ngModel)]='peti'><option *ngFor='let s of sportisti_nosioci' value="{{s.idS}}">{{s.ime_i_prezime}}</option></select></td>
+                    <td ><select  name="nosilac6" [(ngModel)]='sesti'><option *ngFor='let s of sportisti_nosioci'  value="{{s.idS}}">{{s.ime_i_prezime}}</option></select></td>                    
+                    <td ><select  name="nosilac7" [(ngModel)]='sedmi'><option *ngFor='let s of sportisti_nosioci'  value="{{s.idS}}">{{s.ime_i_prezime}}</option></select></td>
+                    <td ><select  name="nosilac8" [(ngModel)]='osmi'><option *ngFor='let s of sportisti_nosioci'  value="{{s.idS}}">{{s.ime_i_prezime}}</option></select></td> 
+
+                </tr>
+
+
+                <tr *ngIf='nosioci==16'>
+                    <th>9.Nosilac</th>
+                    <th>10.Nosilac</th>
+                    <th>11.Nosilac</th>
+                    <th>12.Nosilac</th>
+                
+
+                </tr>
+                <tr  *ngIf='nosioci==16'>
+
+                    <td ><select name="nosilac9" [(ngModel)]='deveti'><option *ngFor='let s of sportisti_nosioci' value="{{s.idS}}">{{s.ime_i_prezime}}</option></select></td>
+                    <td ><select name="nosilac10" [(ngModel)]='deseti'><option *ngFor='let s of sportisti_nosioci' value="{{s.idS}}">{{s.ime_i_prezime}}</option></select></td>                    
+                    <td ><select name="nosilac11" [(ngModel)]='jedanaesti'><option *ngFor='let s of sportisti_nosioci' value="{{s.idS}}">{{s.ime_i_prezime}}</option></select></td>
+                    <td ><select name="nosilac12" [(ngModel)]='dvanaesti'><option *ngFor='let s of sportisti_nosioci' value="{{s.idS}}">{{s.ime_i_prezime}}</option></select></td> 
+
+                </tr>
+
+                <tr *ngIf='nosioci==16'>
+                   
+                    <th>13.Nosilac</th>
+                    <th>14.Nosilac</th>
+                    <th>15.Nosilac</th>
+                    <th>16.Nosilac</th>
+
+                </tr>
+                <tr  *ngIf='nosioci==16'>
+
+                    <td ><select name="nosilac13" [(ngModel)]='trinaesti'><option *ngFor='let s of sportisti_nosioci' value="{{s.idS}}">{{s.ime_i_prezime}}</option></select></td>
+                    <td ><select name="nosilac14" [(ngModel)]='cetrnaesti'><option *ngFor='let s of sportisti_nosioci' value="{{s.idS}}">{{s.ime_i_prezime}}</option></select></td>                    
+                    <td ><select name="nosilac15" [(ngModel)]='petnaesti'><option *ngFor='let s of sportisti_nosioci' value="{{s.idS}}">{{s.ime_i_prezime}}</option></select></td>
+                    <td ><select name="nosilac16" [(ngModel)]='sesnaesti'><option *ngFor='let s of sportisti_nosioci' value="{{s.idS}}">{{s.ime_i_prezime}}</option></select></td> 
+
+                </tr>
+               
+                <tr>
+                    <td>
+                        <button class="button-45" (click)='dodeli_nosioce()'>dodelite nosioce</button>
+                    </td>
+                </tr>
+
+            </table>
+            
+
+           
+          <span style="color: red; font-weight: 800;">{{poruka2}}</span> 
+      
+        </div>
+
+    </div>
+
+</div>
